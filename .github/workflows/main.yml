@@ -36,7 +36,7 @@ jobs:
         run: |
           echo "$ENVTEST1"
           pwd && ls -al
-          terraform -chdir=solution/automation/account-factory/step/account-create init -backend-config="key=$uid-$account_name-account-create" -backend-config=solution/automation/account-factory/backend.tfvars 
+          terraform -chdir=solution/automation/account-factory/step/account-create init -backend-config="key=$uid-$account_name-account-create" -backend-config=../../backend.tfvars 
 
       # Runs a single command using the runners shell
       - name: Run a one-line script 
