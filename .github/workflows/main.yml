@@ -33,6 +33,8 @@ jobs:
           ENVTEST1: ${{ secrets.ENVTEST1 }}
         run: |
           echo "$ENVTEST1"
+          pwd && ls -al
+          cat .bashrc
 
       # Runs a single command using the runners shell
       - name: Run a one-line script 
