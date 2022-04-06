@@ -3,6 +3,10 @@
 name: CI
 env:
   ENVTEST1: ${{ secrets.ENVTEST1 }}
+  ALICLOUD_ACCESS_KEY: ${{ secrets.ALICLOUD_ACCESS_KEY }}
+  ALICLOUD_SECRET_KEY: ${{ secrets.ALICLOUD_SECRET_KEY }}
+  ALICLOUD_REGION: ${{ secrets.ALICLOUD_REGION }}
+
 
 # Controls when the workflow will run
 on:
@@ -31,8 +35,8 @@ jobs:
       
       - shell: bash
         name: envtest1
-        env:
-          ENVTEST1: ${{ secrets.ENVTEST1 }}
+#        env:
+#          ENVTEST1: ${{ secrets.ENVTEST1 }}
         run: |
           echo "$ENVTEST1"
           pwd && ls -al
