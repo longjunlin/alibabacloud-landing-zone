@@ -26,6 +26,7 @@ jobs:
 #    runs-on: self-hosted
     runs-on: ubuntu-latest
 
+    # terraform init -backend-config="key=1140931609457592-yunxiao2-auth-create-idp"  -reconfigure
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -35,7 +36,6 @@ jobs:
         run: |
           pwd && ls -al
           cd solution/automation/account-factory/modules/idp/examples/complete
-#          terraform init -backend-config="key=1140931609457592-yunxiao2-auth-create-idp"  -reconfigure
           terraform init -backend-config=tfvars/backend.tfvars
           terraform plan -var-file=tfvars/simple-01.tfvars
           terraform apply --auto-approve -var-file=tfvars/simple-01.tfvars
