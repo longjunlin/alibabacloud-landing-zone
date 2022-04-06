@@ -1,12 +1,10 @@
 # This is a basic workflow to help you get started with Actions
-
-name: CI
+name: Terraform-CI-Test
 env:
   ENVTEST1: ${{ secrets.ENVTEST1 }}
   ALICLOUD_ACCESS_KEY: ${{ secrets.ALICLOUD_ACCESS_KEY }}
   ALICLOUD_SECRET_KEY: ${{ secrets.ALICLOUD_SECRET_KEY }}
   ALICLOUD_REGION: ${{ secrets.ALICLOUD_REGION }}
-
 
 # Controls when the workflow will run
 on:
@@ -33,8 +31,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       
-      - shell: bash
-        name: envtest1
+      - name: terraform-test
+        shell: bash
         run: |
           echo "$ENVTEST1"
           pwd && ls -al
@@ -45,10 +43,3 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script 
         run: echo "$ALICLOUD_ACCESS_KEY"
-
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo ${{ secrets.ALICLOUD_ACCESS_KEY }} | base64 -d
