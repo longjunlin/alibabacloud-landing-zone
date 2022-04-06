@@ -51,5 +51,4 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
-          terraform init
-          echo ${{ secrets.ENVTEST1 }} | base64 -d
+          echo ${{ secrets.$ALICLOUD_ACCESS_KEY }} | base64 -d
