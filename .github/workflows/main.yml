@@ -35,17 +35,16 @@ jobs:
       
       - shell: bash
         name: envtest1
-#        env:
-#          ENVTEST1: ${{ secrets.ENVTEST1 }}
         run: |
           echo "$ENVTEST1"
           pwd && ls -al
           cd solution/automation/account-factory/step/auth-create-idp
           terraform init -backend-config="key=1140931609457592-yunxiao2-auth-create-idp" -backend-config=../../backend.tfvars -reconfigure
+          terraform apply --auto-approve -var-file=../../settings.tfvars -compact-warnings -var account_id=1584945597797346
 
       # Runs a single command using the runners shell
       - name: Run a one-line script 
-        run: echo "$ENVTEST1"
+        run: echo "$ALICLOUD_ACCESS_KEY"
 
 
       # Runs a set of commands using the runners shell
