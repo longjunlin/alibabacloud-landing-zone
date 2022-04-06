@@ -39,6 +39,3 @@ jobs:
           terraform init -backend-config="key=1140931609457592-yunxiao2-auth-create-idp" -backend-config=../../backend.tfvars -reconfigure
           terraform apply --auto-approve -var-file=../../settings.tfvars -compact-warnings -var account_id=1584945597797346
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script 
-        run: echo "$ALICLOUD_ACCESS_KEY"

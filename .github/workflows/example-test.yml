@@ -23,10 +23,10 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
+
 #    runs-on: self-hosted
     runs-on: ubuntu-latest
 
-    # terraform init -backend-config="key=1140931609457592-yunxiao2-auth-create-idp"  -reconfigure
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -39,7 +39,3 @@ jobs:
           terraform init -backend-config=tfvars/backend.tfvars
           terraform plan -var-file=tfvars/simple-01.tfvars
           terraform apply --auto-approve -var-file=tfvars/simple-01.tfvars
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo "$ALICLOUD_ACCESS_KEY"
