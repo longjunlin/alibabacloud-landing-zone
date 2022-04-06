@@ -36,7 +36,8 @@ jobs:
         run: |
           pwd && ls -al
           cd solution/automation/account-factory/modules/idp/examples/complete
-          terraform init -backend-config="key=1140931609457592-yunxiao2-auth-create-idp"  -reconfigure
+#          terraform init -backend-config="key=1140931609457592-yunxiao2-auth-create-idp"  -reconfigure
+          terraform init -backend-config=tfvars/backend.tfvars
           terraform plan -var-file=tfvars/simple-01.tfvars
           terraform apply --auto-approve -var-file=tfvars/simple-01.tfvars
 

@@ -2,24 +2,16 @@ terraform {
   required_providers {
     alicloud = {
       source = "aliyun/alicloud"
-#      version = "1.127.0"
-    }
-
-    local = {
-      source = "hashicorp/local"
-#      version = "2.1.0"
     }
   }
-#  required_version = ">=0.12"
-
   backend "oss" {
-    bucket              = "bucket-with-terraform-state1"
-    prefix              = "path/mystate"
-    key                 = "{state_key}"
-    region              = "cn-hangzhou"
-    tablestore_endpoint = "https://terraform-hz-1.cn-hangzhou.ots.aliyuncs.com"
-    tablestore_table    = "statelock"
-    endpoint            = "oss-cn-hangzhou.aliyuncs.com"
+#    bucket              = "bucket-with-terraform-state1"
+#    prefix              = "path/mystate"
+#    key                 = "{state_key}"
+#    region              = "cn-hangzhou"
+#    tablestore_endpoint = "https://terraform-hz-1.cn-hangzhou.ots.aliyuncs.com"
+#    tablestore_table    = "statelock"
+#    endpoint            = "oss-cn-hangzhou.aliyuncs.com"
   }
 }
 
