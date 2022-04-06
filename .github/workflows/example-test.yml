@@ -1,5 +1,5 @@
 # This is a basic workflow to help you get started with Actions
-name: Terraform-CI-Example-Test
+name: Terraform-CI-Module-Example-Test
 env:
   ALICLOUD_ACCESS_KEY: ${{ secrets.ALICLOUD_ACCESS_KEY }}
   ALICLOUD_SECRET_KEY: ${{ secrets.ALICLOUD_SECRET_KEY }}
@@ -35,7 +35,7 @@ jobs:
         shell: bash
         run: |
           pwd && ls -al
-          cd solution/automation/account-factory/step/auth-create-idp/examples/complete
+          cd solution/automation/account-factory/modules/idp/examples/complete
           terraform init -backend-config=../../../backend-example.tf -backend-config="key=1140931609457592-yunxiao2-auth-create-idp"  -reconfigure
           terraform plan -var-file=tfvars/simple-01.tfvars
           terraform apply --auto-approve -var-file=tfvars/simple-01.tfvars
