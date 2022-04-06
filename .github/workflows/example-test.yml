@@ -1,0 +1,45 @@
+# This is a basic workflow to help you get started with Actions
+name: Terraform-CI-Example-Test
+env:
+  ALICLOUD_ACCESS_KEY: ${{ secrets.ALICLOUD_ACCESS_KEY }}
+  ALICLOUD_SECRET_KEY: ${{ secrets.ALICLOUD_SECRET_KEY }}
+  ALICLOUD_REGION: ${{ secrets.ALICLOUD_REGION }}
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ ci-test-1 ]
+  pull_request:
+    branches: [ ci-test-1 ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+#    runs-on: self-hosted
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: terraform-test
+        shell: bash
+        run: |
+          pwd && ls -al
+          cd solution/automation/account-factory/step/auth-create-idp/examples/complete
+          terraform init -backend-config=../../../backend-example.tf -backend-config="key=1140931609457592-yunxiao2-auth-create-idp"  -reconfigure
+          terraform plan -var-file=tfvars/simple-01.tfvars
+          terraform apply --auto-approve -var-file=tfvars/simple-01.tfvars
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo "$ALICLOUD_ACCESS_KEY"
