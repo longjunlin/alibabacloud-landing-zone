@@ -13,7 +13,7 @@ provider "alicloud" {
   assume_role {
     role_arn           = format("acs:ram::%s:role/ResourceDirectoryAccountAccessRole", var.account_id)
     session_name       = "AccountLandingZoneSetup"
-    session_expiration = 996
+    session_expiration = 999
   }
 }
 
