@@ -3,7 +3,7 @@ name: module-auth-create-idp-ci-test
 env:
   ALICLOUD_ACCESS_KEY: ${{ secrets.ALICLOUD_ACCESS_KEY }}
   ALICLOUD_SECRET_KEY: ${{ secrets.ALICLOUD_SECRET_KEY }}
-  ALICLOUD_REGION: ${{ secrets.ALICLOUD_REGION }}
+  ALICLOUD_REGION: 'cn-hangzhou'
 
 # Controls when the workflow will run
 on:
